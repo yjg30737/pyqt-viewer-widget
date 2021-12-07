@@ -76,9 +76,6 @@ class ViewerWidget(QWidget):
         self.__btnToggled()
         self.__graphicsView.setFilenames(self.__lst)
         self.__graphicsView.setIndex(idx)
-    
-    def set_cur_idx(self, idx):
-        self.__cur_idx = idx
 
     def __getCurrentIndex(self):
         return self.__cur_idx
@@ -86,12 +83,11 @@ class ViewerWidget(QWidget):
     def __btnToggled(self):
         idx = self.__getCurrentIndex()
         self.__prevBtn.setEnabled(idx > 0)
-        self.__nextBtn.setEnabled(idx < len(self.__lst)-2)
+        self.__nextBtn.setEnabled(idx+1 < len(self.__lst))
 
     def __prev(self):
-        limit = 0
         self.__cur_idx = self.__getCurrentIndex()
-        if self.__cur_idx > limit:
+        if self.__cur_idx > 0:
             self.__cur_idx -= 1
             self.__graphicsView.setIndex(self.__cur_idx)
             self.__btnToggled()
