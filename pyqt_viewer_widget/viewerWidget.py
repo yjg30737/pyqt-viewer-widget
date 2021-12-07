@@ -69,7 +69,9 @@ class ViewerWidget(QWidget):
         for filename in filenames:
             if os.path.isdir(filename):
                 dirname = filename
-                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)]
+                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
+                                   if os.path.splitext(file_in_dir)[:-1] ==
+                                   '.png' or '.jpg' or '.jpeg' or '.bmp' or '.ico' or '.gif']
                 self.__lst.extend(image_filenames)
             else:
                 self.__lst.append(filename)
