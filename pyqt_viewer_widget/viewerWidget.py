@@ -1,10 +1,10 @@
 import os
 import sys
 
-from PyQt5.QtGui import QKeySequence, QPixmap
+from PyQt5.QtGui import QKeySequence
 from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, \
-    QApplication, QGridLayout, QPushButton, QHBoxLayout, QLabel, QGraphicsView, QGraphicsScene
-from PyQt5.QtCore import QPoint, pyqtSignal, Qt
+    QApplication, QGridLayout, QPushButton, QHBoxLayout, QLabel
+from PyQt5.QtCore import pyqtSignal, Qt
 
 from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
 
@@ -47,8 +47,8 @@ class ViewerWidget(QWidget):
         self.__bottomWidget = QWidget()
         self.__bottomWidget.setLayout(lay)
 
-        self.__prevBtn.clicked.connect(self._prev)
-        self.__nextBtn.clicked.connect(self._next)
+        self.__prevBtn.clicked.connect(self.__prev)
+        self.__nextBtn.clicked.connect(self.__next)
         self.__closeBtn.clicked.connect(self.__close)
 
         self.__graphicsView = ViewerGraphicsView()
@@ -65,63 +65,41 @@ class ViewerWidget(QWidget):
 
         self.setLayout(lay)
 
-    def set_lst_to_view(self, lst, idx=0):
+    def setImagesToView(self, lst, idx=0):
         self.__lst = lst
-        self.__btn_toggled()
+        self.__btnToggled()
         self.__graphicsView.set_filenames(self.__lst)
         self.__graphicsView.set_index(idx)
-
-    def set_start_page(self, widget):
-        self.__start_page = widget
-
-    def get_prev(self):
-        return self.__prevBtn
-
-    def get_next(self):
-        return self.__nextBtn
-
-    def get_top_widget(self):
-        return self.__topWidget
-
-    def get_bottom_widget(self):
-        return self.__bottomWidget
-
-    def get_top_widgets_count(self):
-        lay = self.layout().itemAt(0).widget().layout()
-        if lay:
-            return lay.count()
-        else:
-            return 1
     
     def set_cur_idx(self, idx):
         self.__cur_idx = idx
 
-    def get_cur_idx(self):
+    def __getCurrentIndex(self):
         return self.__cur_idx
 
-    def __btn_toggled(self):
-        idx = self.get_cur_idx()
+    def __btnToggled(self):
+        idx = self.__getCurrentIndex()
         self.__prevBtn.setEnabled(idx > 0)
         self.__nextBtn.setEnabled(idx < len(self.__lst)-2)
 
-    def _prev(self):
+    def __prev(self):
         limit = 0
-        self.__cur_idx = self.get_cur_idx()
+        self.__cur_idx = self.__getCurrentIndex()
         if self.__cur_idx > limit:
             self.__cur_idx -= 1
             self.__graphicsView.set_index(self.__cur_idx)
-            self.__btn_toggled()
+            self.__btnToggled()
             self.prevSignal.emit()
             return 0
         return -1
 
-    def _next(self):
+    def __next(self):
         limit = len(self.__lst)-2
-        self.__cur_idx = self.get_cur_idx()
+        self.__cur_idx = self.__getCurrentIndex()
         if self.__cur_idx < limit:
             self.__cur_idx += 1
             self.__graphicsView.set_index(self.__cur_idx)
-            self.__btn_toggled()
+            self.__btnToggled()
             self.nextSignal.emit()
             return 0
         return -1
@@ -140,17 +118,17 @@ class ViewerWidget(QWidget):
     def keyReleaseEvent(self, e):
         # 16777234 is left
         if e.key() == 16777234:
-            self._prev()
+            self.__prev()
         # 16777236 is right
         elif e.key() == 16777236:
-            self._next()
+            self.__next()
         return super().keyReleaseEvent(e)
 
     def wheelEvent(self, e):
         if e.angleDelta().y() < 0:
-            self._next()
+            self.__next()
         else:
-            self._prev()
+            self.__prev()
         return super().wheelEvent(e)
 
     def bottomWidgetToggled(self, f: bool):
@@ -158,14 +136,3 @@ class ViewerWidget(QWidget):
 
     def __close(self):
         self.closeSignal.emit(False)
-        
-        
-if __name__ == "__main__":
-    import sys
-
-    app = QApplication(sys.argv)
-    viewerWidget = ViewerWidget()
-    lst = [os.path.join('짱 45', filename) for filename in os.listdir('짱 45')]
-    viewerWidget.set_lst_to_view(lst)
-    viewerWidget.show()
-    app.exec_()
