@@ -24,7 +24,7 @@ class ViewerWidget(QWidget):
 
     def __initUi(self):
         self.__page_text = 'Page: {0}'
-        self.__pageLabel = QLabel(self.__page_text.format(''))
+        self.__pageLabel = QLabel(self.__page_text.format('0'))
         self.__prevBtn = QPushButton('Prev')
         self.__nextBtn = QPushButton('Next')
         self.__closeBtn = QPushButton('Close')
