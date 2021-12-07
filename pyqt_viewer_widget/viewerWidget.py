@@ -24,7 +24,7 @@ class ViewerWidget(QWidget):
 
     def __initUi(self):
         self.__page_text = 'Page: {0}'
-        self.__pageLabel = QLabel(self.__page_text.format('0'))
+        self.__pageLabel = QLabel(self.__page_text.format('1'))
         self.__prevBtn = QPushButton('Prev')
         self.__nextBtn = QPushButton('Next')
         self.__closeBtn = QPushButton('Close')
@@ -94,7 +94,7 @@ class ViewerWidget(QWidget):
             self.__graphicsView.setIndex(self.__cur_idx)
             self.prevSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx))
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx+1))
             return 0
         return -1
 
@@ -105,7 +105,7 @@ class ViewerWidget(QWidget):
             self.__graphicsView.setIndex(self.__cur_idx)
             self.nextSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx))
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx+1))
             return 0
         return -1
 
