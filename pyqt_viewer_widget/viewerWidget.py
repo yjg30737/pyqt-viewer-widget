@@ -87,7 +87,7 @@ class ViewerWidget(QWidget):
 
     def __prev(self):
         self.__cur_idx = self.__getCurrentIndex()
-        if self.__cur_idx > 0:
+        if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
             self.__graphicsView.setIndex(self.__cur_idx)
             self.prevSignal.emit()
@@ -97,7 +97,7 @@ class ViewerWidget(QWidget):
 
     def __next(self):
         self.__cur_idx = self.__getCurrentIndex()
-        if self.__cur_idx < len(self.__lst)-1:
+        if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
             self.__graphicsView.setIndex(self.__cur_idx)
             self.nextSignal.emit()
