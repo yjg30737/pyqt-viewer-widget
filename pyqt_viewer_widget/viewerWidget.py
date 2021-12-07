@@ -65,8 +65,14 @@ class ViewerWidget(QWidget):
 
         self.setLayout(lay)
 
-    def setImagesToView(self, lst, idx=0):
-        self.__lst = lst
+    def setFilenames(self, filenames: list, idx=0):
+        for filename in filenames:
+            if os.path.isdir(filename):
+                dirname = filename
+                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)]
+                self.__lst.extend(image_filenames)
+            else:
+                self.__lst.append(filename)
         self.__btnToggled()
         self.__graphicsView.setFilenames(self.__lst)
         self.__graphicsView.setIndex(idx)
