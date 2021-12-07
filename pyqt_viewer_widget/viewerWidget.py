@@ -83,7 +83,7 @@ class ViewerWidget(QWidget):
     def __btnToggled(self):
         idx = self.__getCurrentIndex()
         self.__prevBtn.setEnabled(idx > 0)
-        self.__nextBtn.setEnabled(idx < len(self.__lst)-1)
+        self.__nextBtn.setEnabled(idx < len(self.__lst)-2)
 
     def __prev(self):
         self.__cur_idx = self.__getCurrentIndex()
