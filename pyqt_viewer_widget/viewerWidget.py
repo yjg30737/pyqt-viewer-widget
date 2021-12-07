@@ -46,6 +46,7 @@ class ViewerWidget(QWidget):
         
         self.__bottomWidget = QWidget()
         self.__bottomWidget.setLayout(lay)
+        lay.setContentsMargins(5, 5, 5, 5)
 
         self.__prevBtn.clicked.connect(self.__prev)
         self.__nextBtn.clicked.connect(self.__next)
@@ -59,7 +60,6 @@ class ViewerWidget(QWidget):
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
         lay.addWidget(self.__bottomWidget)
-        lay.setContentsMargins(0, 0, 0, 0)
 
         self.setLayout(lay)
 
@@ -137,4 +137,4 @@ class ViewerWidget(QWidget):
 
     def __close(self):
         self.closeSignal.emit()
-        return super().close()
+        self.__bottomWidget.setVisible(False)
