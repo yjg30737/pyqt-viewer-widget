@@ -68,8 +68,8 @@ class ViewerWidget(QWidget):
     def setImagesToView(self, lst, idx=0):
         self.__lst = lst
         self.__btnToggled()
-        self.__graphicsView.set_filenames(self.__lst)
-        self.__graphicsView.set_index(idx)
+        self.__graphicsView.setFilenames(self.__lst)
+        self.__graphicsView.setIndex(idx)
     
     def set_cur_idx(self, idx):
         self.__cur_idx = idx
@@ -87,7 +87,7 @@ class ViewerWidget(QWidget):
         self.__cur_idx = self.__getCurrentIndex()
         if self.__cur_idx > limit:
             self.__cur_idx -= 1
-            self.__graphicsView.set_index(self.__cur_idx)
+            self.__graphicsView.setIndex(self.__cur_idx)
             self.__btnToggled()
             self.prevSignal.emit()
             return 0
@@ -98,7 +98,7 @@ class ViewerWidget(QWidget):
         self.__cur_idx = self.__getCurrentIndex()
         if self.__cur_idx < limit:
             self.__cur_idx += 1
-            self.__graphicsView.set_index(self.__cur_idx)
+            self.__graphicsView.setIndex(self.__cur_idx)
             self.__btnToggled()
             self.nextSignal.emit()
             return 0
