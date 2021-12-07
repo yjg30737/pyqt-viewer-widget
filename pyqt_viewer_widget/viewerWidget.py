@@ -12,7 +12,6 @@ from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
 class ViewerWidget(QWidget):
     prevSignal = pyqtSignal()
     nextSignal = pyqtSignal()
-    closeSignal = pyqtSignal()
 
     def __init__(self):
         super().__init__()
@@ -136,6 +135,5 @@ class ViewerWidget(QWidget):
             self.__prev()
         return super().wheelEvent(e)
 
-    def __close(self):
-        self.closeSignal.emit()
-        self.__bottomWidget.setVisible(False)
+    def setBottomWidgetVisible(self, f: bool):
+        self.__bottomWidget.setVisible(f)
