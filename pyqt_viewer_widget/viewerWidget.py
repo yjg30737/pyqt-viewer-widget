@@ -66,15 +66,16 @@ class ViewerWidget(QWidget):
         self.setLayout(lay)
 
     def setFilenames(self, filenames: list, idx=0):
+        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.gif', '.ico']
         for filename in filenames:
             if os.path.isdir(filename):
                 dirname = filename
                 image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
-                                   if os.path.splitext(file_in_dir)[:-1] ==
-                                   '.png' or '.jpg' or '.jpeg' or '.bmp' or '.ico' or '.gif']
+                                   if os.path.splitext(file_in_dir)[-1] in image_extensions]
                 self.__lst.extend(image_filenames)
             else:
-                self.__lst.append(filename)
+                if os.path.splitext(filename)[-1] in image_extensions:
+                    self.__lst.append(filename)
         self.__btnToggled()
         self.__graphicsView.setFilenames(self.__lst)
         self.__graphicsView.setIndex(idx)
