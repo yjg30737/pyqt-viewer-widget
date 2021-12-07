@@ -12,7 +12,7 @@ from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
 class ViewerWidget(QWidget):
     prevSignal = pyqtSignal()
     nextSignal = pyqtSignal()
-    closeSignal = pyqtSignal(bool)
+    closeSignal = pyqtSignal()
 
     def __init__(self):
         super().__init__()
@@ -59,9 +59,7 @@ class ViewerWidget(QWidget):
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
         lay.addWidget(self.__bottomWidget)
-
-        mainWidget = QWidget()
-        mainWidget.setLayout(lay)
+        lay.setContentsMargins(0, 0, 0, 0)
 
         self.setLayout(lay)
 
@@ -95,6 +93,7 @@ class ViewerWidget(QWidget):
             self.__graphicsView.setIndex(self.__cur_idx)
             self.prevSignal.emit()
             self.__btnToggled()
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx))
             return 0
         return -1
 
@@ -105,6 +104,7 @@ class ViewerWidget(QWidget):
             self.__graphicsView.setIndex(self.__cur_idx)
             self.nextSignal.emit()
             self.__btnToggled()
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx))
             return 0
         return -1
 
@@ -135,8 +135,6 @@ class ViewerWidget(QWidget):
             self.__prev()
         return super().wheelEvent(e)
 
-    def bottomWidgetToggled(self, f: bool):
-        self.__bottomWidget.setVisible(f)
-
     def __close(self):
-        self.closeSignal.emit(False)
+        self.closeSignal.emit()
+        return super().close()
