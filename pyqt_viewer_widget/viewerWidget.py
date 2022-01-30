@@ -1,10 +1,10 @@
 import os
-import sys
 
 from PyQt5.QtGui import QKeySequence
-from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, \
-    QApplication, QGridLayout, QPushButton, QHBoxLayout, QLabel
+from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, QPushButton, QHBoxLayout, QLabel
 from PyQt5.QtCore import pyqtSignal, Qt
+
+from PIL import Image
 
 from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
 
@@ -65,19 +65,28 @@ class ViewerWidget(QWidget):
         self.setLayout(lay)
 
     def setFilenames(self, filenames: list, idx=0):
-        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.gif', '.ico']
         for filename in filenames:
             if os.path.isdir(filename):
                 dirname = filename
                 image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
-                                   if os.path.splitext(file_in_dir)[-1] in image_extensions]
+                                    if self.__isImageFile(filename)]
                 self.__lst.extend(image_filenames)
             else:
-                if os.path.splitext(filename)[-1] in image_extensions:
+                if self.__isImageFile(filename):
                     self.__lst.append(filename)
         self.__btnToggled()
         self.__graphicsView.setFilenames(self.__lst)
         self.__graphicsView.setIndex(idx)
+
+    def __isImageFile(self, filename):
+        file = Image.open(filename)
+        res = ''
+        try:
+            res = file.format
+        except:
+            res = ''
+        finally:
+            return res
 
     def __btnToggled(self):
         idx = self.__cur_idx
