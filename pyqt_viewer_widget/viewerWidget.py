@@ -69,7 +69,7 @@ class ViewerWidget(QWidget):
             if os.path.isdir(filename):
                 dirname = filename
                 image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
-                                    if self.__isImageFile(filename)]
+                                    if self.__isImageFile(os.path.join(filename, file_in_dir))]
                 self.__lst.extend(image_filenames)
             else:
                 if self.__isImageFile(filename):
