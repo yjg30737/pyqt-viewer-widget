@@ -11,7 +11,7 @@ This is image viewer widget, not an application itself. But you can make image v
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
 
 ## Included Package
-* Pillow >= 9.0.0
+* Pillow >= 9.0.0 (to check if file extension is image format or not)
 
 ## Feature
 * Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...])```
