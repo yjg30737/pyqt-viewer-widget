@@ -19,7 +19,7 @@ This is image viewer widget, not an application itself. But you can make image v
 * Flip the page with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
-* Give the connectable signal when clicked prev, next, close buttons: ```prevSignal, nextSignal, closeSignal```
+* Give the emitting signal when clicked prev, next, close buttons: ```prevSignal(), nextSignal(), closeSignal()```
 
 ## Example
 Code Example (Extremely basic image viewer)
