@@ -43,19 +43,19 @@ class ViewerWidget(QWidget):
         lay.addWidget(btns, 0, 1, 1, 1, alignment=Qt.AlignCenter)
         lay.addWidget(self.__closeBtn, 0, 2, 1, 1, alignment=Qt.AlignRight)
         lay.setContentsMargins(0, 0, 0, 0)
-        
+
         self.__bottomWidget = QWidget()
         self.__bottomWidget.setLayout(lay)
         lay.setContentsMargins(5, 5, 5, 5)
 
-        self.__prevBtn.clicked.connect(self.__prev)
-        self.__nextBtn.clicked.connect(self.__next)
+        self.__prevBtn.clicked.connect(self._prev)
+        self.__nextBtn.clicked.connect(self._next)
         self.__closeBtn.clicked.connect(self.__close)
 
-        self.__graphicsView = ViewerGraphicsView()
+        self._graphicsView = ViewerGraphicsView()
 
         self.__topWidget = QStackedWidget()
-        self.__topWidget.addWidget(self.__graphicsView)
+        self.__topWidget.addWidget(self._graphicsView)
 
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
@@ -69,14 +69,14 @@ class ViewerWidget(QWidget):
             if os.path.isdir(filename):
                 dirname = filename
                 image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
-                                    if self.__isImageFile(os.path.join(filename, file_in_dir))]
+                                   if self.__isImageFile(os.path.join(filename, file_in_dir))]
                 self.__lst.extend(image_filenames)
             else:
                 if self.__isImageFile(filename):
                     self.__lst.append(filename)
         self.__btnToggled()
-        self.__graphicsView.setFilenames(self.__lst)
-        self.__graphicsView.setIndex(idx)
+        self._graphicsView.setFilenames(self.__lst)
+        self._graphicsView.setIndex(idx)
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
@@ -94,25 +94,25 @@ class ViewerWidget(QWidget):
     def __btnToggled(self):
         idx = self.__cur_idx
         self.__prevBtn.setEnabled(idx > 0)
-        self.__nextBtn.setEnabled(idx < len(self.__lst)-1)
+        self.__nextBtn.setEnabled(idx < len(self.__lst) - 1)
 
-    def __prev(self):
+    def _prev(self):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
-            self.__graphicsView.setIndex(self.__cur_idx)
+            self._graphicsView.setIndex(self.__cur_idx)
             self.prevSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx+1))
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx + 1))
             return 0
         return -1
 
-    def __next(self):
+    def _next(self):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
-            self.__graphicsView.setIndex(self.__cur_idx)
+            self._graphicsView.setIndex(self.__cur_idx)
             self.nextSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx+1))
+            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx + 1))
             return 0
         return -1
 
@@ -130,17 +130,17 @@ class ViewerWidget(QWidget):
     def keyReleaseEvent(self, e):
         # 16777234 is left
         if e.key() == 16777234:
-            self.__prev()
+            self._prev()
         # 16777236 is right
         elif e.key() == 16777236:
-            self.__next()
+            self._next()
         return super().keyReleaseEvent(e)
 
     def wheelEvent(self, e):
         if e.angleDelta().y() < 0:
-            self.__next()
+            self._next()
         else:
-            self.__prev()
+            self._prev()
         return super().wheelEvent(e)
 
     def setBottomWidgetVisible(self, f: bool):
