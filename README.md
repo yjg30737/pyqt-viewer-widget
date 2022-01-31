@@ -15,6 +15,7 @@ This is image viewer widget, not an application itself. But you can make image v
 
 ## Feature
 * Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...])```
+* Being able to get current filename with ```getCurrentFilename()```
 * Flip the page with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
