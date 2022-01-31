@@ -78,6 +78,9 @@ class ViewerWidget(QWidget):
         self.__graphicsView.setFilenames(self.__lst)
         self.__graphicsView.setIndex(idx)
 
+    def getCurrentFilename(self):
+        return self.__lst[self.__cur_idx]
+
     def __isImageFile(self, filename):
         file = Image.open(filename)
         res = ''
