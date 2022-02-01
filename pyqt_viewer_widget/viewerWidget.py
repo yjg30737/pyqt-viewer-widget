@@ -120,6 +120,7 @@ class ViewerWidget(QWidget):
             self.prevSignal.emit()
             self.__btnToggled()
             self.__setPageLabel()
+            self.__setWindowTitleBasedOnCurrentFileName()
             return 0
         else:
             self.__firstPageToast.show()
@@ -132,6 +133,7 @@ class ViewerWidget(QWidget):
             self.nextSignal.emit()
             self.__btnToggled()
             self.__setPageLabel()
+            self.__setWindowTitleBasedOnCurrentFileName()
             return 0
         else:
             self.__lastPageToast.show()
@@ -139,6 +141,9 @@ class ViewerWidget(QWidget):
 
     def __setPageLabel(self):
         self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__lst)))
+
+    def __setWindowTitleBasedOnCurrentFileName(self):
+        self.window().setWindowTitle(self.getCurrentFilename())
 
     def keyPressEvent(self, e):
         if (e.key() == 61 or e.matches(QKeySequence.ZoomIn)) or e.matches(QKeySequence.ZoomOut):
