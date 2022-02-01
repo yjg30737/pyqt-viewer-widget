@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyqt-viewer-widget',
-    version='0.2.0',
+    version='0.3.0',
     author='Jung Gyu Yoon',
     author_email='yjg30737@gmail.com',
     license='MIT',
@@ -11,6 +11,7 @@ setup(
     url='https://github.com/yjg30737/pyqt-viewer-widget.git',
     install_requires=[
         'PyQt5>=5.8',
-        'Pillow>=9.0.0'
+        'Pillow>=9.0.0',
+        'pyqt-toast @ git+https://git@github.com/yjg30737/pyqt-toast.git@main'
     ]
 )

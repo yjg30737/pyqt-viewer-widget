@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, Q
 from PyQt5.QtCore import pyqtSignal, Qt
 
 from PIL import Image
+from pyqt_toast import Toast
 
 from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
 
@@ -69,6 +70,9 @@ class ViewerWidget(QWidget):
 
         self.setLayout(lay)
 
+        self.__firstPageToast = Toast(text='This is the first page.', close_sec=2, parent=self)
+        self.__lastPageToast = Toast(text='This is the last page.', close_sec=2, parent=self)
+
         self.__btnToggled()
 
     def setFilenames(self, filenames: list, idx=0):
@@ -117,7 +121,9 @@ class ViewerWidget(QWidget):
             self.__btnToggled()
             self.__setPageLabel()
             return 0
-        return -1
+        else:
+            self.__firstPageToast.show()
+            return -1
 
     def _next(self):
         if self.__nextBtn.isEnabled():
@@ -127,7 +133,9 @@ class ViewerWidget(QWidget):
             self.__btnToggled()
             self.__setPageLabel()
             return 0
-        return -1
+        else:
+            self.__lastPageToast.show()
+            return -1
 
     def __setPageLabel(self):
         self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__lst)))

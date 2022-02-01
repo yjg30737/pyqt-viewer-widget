@@ -1,1 +1,2 @@
 Pillow>=9.0.0
+git+https://git@github.com/yjg30737/pyqt-toast.git@main
