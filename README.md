@@ -14,7 +14,7 @@ This is image viewer widget, not an application itself. But you can make image v
 * Pillow >= 9.0.0 (to check if file extension is image format or not)
 
 ## Feature
-* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...], idx=0)```. ```idx``` is current index of files which you want to set.
+* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...], idx=0)```. ```idx``` is current index of files which you want to set. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package. 
 * Being able to get current filename with ```getCurrentFilename()```
 * Flip the page with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
