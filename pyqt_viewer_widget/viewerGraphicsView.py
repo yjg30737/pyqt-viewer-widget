@@ -26,8 +26,7 @@ class ViewerGraphicsView(QGraphicsView):
         self.__filenames = filenames
 
     def setIndex(self, index):
-        self.__filenames_idx = index
-        self.setFile(self.__filenames[self.__filenames_idx])
+        self.setFile(self.__filenames[index])
 
     def setPixmap(self, p):
         self.__setPixmap(p)
