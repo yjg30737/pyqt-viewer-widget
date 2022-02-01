@@ -27,8 +27,9 @@ class ViewerWidget(QWidget):
     def __initUi(self):
         self.setMouseTracking(True)
 
-        self.__page_text = 'Page: {0}'
-        self.__pageLabel = QLabel(self.__page_text.format('1'))
+        self.__page_label_prefix = 'Page: '
+        self.__page_label_text = self.__page_label_prefix + '{0}/{1}'
+        self.__pageLabel = QLabel(self.__page_label_prefix)
         self.__prevBtn = QPushButton('Prev')
         self.__nextBtn = QPushButton('Next')
         self.__closeBtn = QPushButton('Close')
@@ -88,6 +89,7 @@ class ViewerWidget(QWidget):
             self._graphicsView.setIndex(idx)
 
         self.__btnToggled()
+        self.__setPageLabel()
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
@@ -113,7 +115,7 @@ class ViewerWidget(QWidget):
             self._graphicsView.setIndex(self.__cur_idx)
             self.prevSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx + 1))
+            self.__setPageLabel()
             return 0
         return -1
 
@@ -123,9 +125,12 @@ class ViewerWidget(QWidget):
             self._graphicsView.setIndex(self.__cur_idx)
             self.nextSignal.emit()
             self.__btnToggled()
-            self.__pageLabel.setText(self.__page_text.format(self.__cur_idx + 1))
+            self.__setPageLabel()
             return 0
         return -1
+
+    def __setPageLabel(self):
+        self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__lst)))
 
     def keyPressEvent(self, e):
         if (e.key() == 61 or e.matches(QKeySequence.ZoomIn)) or e.matches(QKeySequence.ZoomOut):
