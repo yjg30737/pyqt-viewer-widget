@@ -94,6 +94,7 @@ class ViewerWidget(QWidget):
 
         self.__btnToggled()
         self.__setPageLabel()
+        self.__setWindowTitleBasedOnCurrentFileName()
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
