@@ -120,7 +120,10 @@ class ViewerWidget(QWidget):
             self.prevSignal.emit()
             return 0
         else:
-            self.__firstPageToast.show()
+            if self.__firstPageToast.isVisible() or self.__lastPageToast.isVisible():
+                pass
+            else:
+                self.__firstPageToast.show()
             return -1
 
     def _next(self):
@@ -131,7 +134,10 @@ class ViewerWidget(QWidget):
             self.nextSignal.emit()
             return 0
         else:
-            self.__lastPageToast.show()
+            if self.__firstPageToast.isVisible() or self.__lastPageToast.isVisible():
+                pass
+            else:
+                self.__lastPageToast.show()
             return -1
 
     def __execSettingPageWork(self):
