@@ -65,6 +65,8 @@ class ViewerWidget(QWidget):
         self.setLayout(lay)
 
     def setFilenames(self, filenames: list, idx=0):
+        self.__lst = []
+
         for filename in filenames:
             if os.path.isdir(filename):
                 dirname = filename
@@ -74,9 +76,11 @@ class ViewerWidget(QWidget):
             else:
                 if self.__isImageFile(filename):
                     self.__lst.append(filename)
-        self.__btnToggled()
-        self._graphicsView.setFilenames(self.__lst)
-        self._graphicsView.setIndex(idx)
+
+        if len(self.__lst) > 0:
+            self.__btnToggled()
+            self._graphicsView.setFilenames(self.__lst)
+            self._graphicsView.setIndex(idx)
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
