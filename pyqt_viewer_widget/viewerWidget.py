@@ -92,9 +92,7 @@ class ViewerWidget(QWidget):
             self._graphicsView.setFilenames(self.__lst)
             self._graphicsView.setIndex(idx)
 
-        self.__btnToggled()
-        self.__setPageLabel()
-        self.__setWindowTitleBasedOnCurrentFileName()
+        self.__execSettingPageWork()
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
@@ -118,9 +116,7 @@ class ViewerWidget(QWidget):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
             self._graphicsView.setIndex(self.__cur_idx)
-            self.__btnToggled()
-            self.__setPageLabel()
-            self.__setWindowTitleBasedOnCurrentFileName()
+            self.__execSettingPageWork()
             self.prevSignal.emit()
             return 0
         else:
@@ -131,14 +127,17 @@ class ViewerWidget(QWidget):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
             self._graphicsView.setIndex(self.__cur_idx)
-            self.__btnToggled()
-            self.__setPageLabel()
-            self.__setWindowTitleBasedOnCurrentFileName()
+            self.__execSettingPageWork()
             self.nextSignal.emit()
             return 0
         else:
             self.__lastPageToast.show()
             return -1
+
+    def __execSettingPageWork(self):
+        self.__btnToggled()
+        self.__setPageLabel()
+        self.__setWindowTitleBasedOnCurrentFileName()
 
     def __setPageLabel(self):
         self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__lst)))
