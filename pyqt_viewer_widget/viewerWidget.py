@@ -78,9 +78,10 @@ class ViewerWidget(QWidget):
                     self.__lst.append(filename)
 
         if len(self.__lst) > 0:
-            self.__btnToggled()
             self._graphicsView.setFilenames(self.__lst)
             self._graphicsView.setIndex(idx)
+
+        self.__btnToggled()
 
     def getCurrentFilename(self):
         return self.__lst[self.__cur_idx]
