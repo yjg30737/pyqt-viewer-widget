@@ -17,12 +17,16 @@ class ViewerWidget(QWidget):
     def __init__(self):
         super().__init__()
 
+        self.__initVal()
         self.__initUi()
+
+    def __initVal(self):
         self.__lst = []
         self.__cur_idx = 0
-        self.setMouseTracking(True)
 
     def __initUi(self):
+        self.setMouseTracking(True)
+
         self.__page_text = 'Page: {0}'
         self.__pageLabel = QLabel(self.__page_text.format('1'))
         self.__prevBtn = QPushButton('Prev')
@@ -63,6 +67,8 @@ class ViewerWidget(QWidget):
         lay.setContentsMargins(0, 0, 0, 0)
 
         self.setLayout(lay)
+
+        self.__btnToggled()
 
     def setFilenames(self, filenames: list, idx=0):
         self.__lst = []
