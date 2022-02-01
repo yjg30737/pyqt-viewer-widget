@@ -9,6 +9,7 @@ class ViewerGraphicsView(QGraphicsView):
 
     def __init__(self):
         super().__init__()
+        self.__filenames = []
         self.__initUi()
 
     def __initUi(self):
