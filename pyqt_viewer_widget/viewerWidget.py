@@ -118,10 +118,10 @@ class ViewerWidget(QWidget):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
             self._graphicsView.setIndex(self.__cur_idx)
-            self.prevSignal.emit()
             self.__btnToggled()
             self.__setPageLabel()
             self.__setWindowTitleBasedOnCurrentFileName()
+            self.prevSignal.emit()
             return 0
         else:
             self.__firstPageToast.show()
@@ -131,10 +131,10 @@ class ViewerWidget(QWidget):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
             self._graphicsView.setIndex(self.__cur_idx)
-            self.nextSignal.emit()
             self.__btnToggled()
             self.__setPageLabel()
             self.__setWindowTitleBasedOnCurrentFileName()
+            self.nextSignal.emit()
             return 0
         else:
             self.__lastPageToast.show()
