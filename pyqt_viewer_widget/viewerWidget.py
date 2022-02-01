@@ -82,12 +82,12 @@ class ViewerWidget(QWidget):
         return self.__lst[self.__cur_idx]
 
     def __isImageFile(self, filename):
-        file = Image.open(filename)
         res = ''
         try:
+            file = Image.open(filename)
             res = file.format
         except:
-            res = ''
+            pass
         finally:
             return res
 
