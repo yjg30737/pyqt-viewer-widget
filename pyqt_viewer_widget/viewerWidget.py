@@ -1,6 +1,6 @@
 import os
 
-from PyQt5.QtGui import QKeySequence
+from PyQt5.QtGui import QKeySequence, QFont
 from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, QPushButton, QHBoxLayout, QLabel
 from PyQt5.QtCore import pyqtSignal, Qt
 
@@ -72,6 +72,9 @@ class ViewerWidget(QWidget):
 
         self.__firstPageToast = Toast(text='This is the first page.', close_sec=2, parent=self)
         self.__lastPageToast = Toast(text='This is the last page.', close_sec=2, parent=self)
+
+        self.__firstPageToast.setFont(QFont('Arial', 20))
+        self.__lastPageToast.setFont(QFont('Arial', 20))
 
         self.__btnToggled()
 
