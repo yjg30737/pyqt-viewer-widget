@@ -120,7 +120,7 @@ class ViewerWidget(QWidget):
             self.prevSignal.emit()
             return 0
         else:
-            if self.__firstPageToast.isVisible() or self.__lastPageToast.isVisible():
+            if self.__isAnyToastVisible():
                 pass
             else:
                 self.__firstPageToast.show()
@@ -134,7 +134,7 @@ class ViewerWidget(QWidget):
             self.nextSignal.emit()
             return 0
         else:
-            if self.__firstPageToast.isVisible() or self.__lastPageToast.isVisible():
+            if self.__isAnyToastVisible():
                 pass
             else:
                 self.__lastPageToast.show()
@@ -180,6 +180,9 @@ class ViewerWidget(QWidget):
 
     def setBottomWidgetVisible(self, f: bool):
         self.__bottomWidget.setVisible(f)
+
+    def __isAnyToastVisible(self):
+        return self.__firstPageToast.isVisible() or self.__lastPageToast.isVisible()
 
     def __close(self):
         self.__bottomWidget.setVisible(False)
