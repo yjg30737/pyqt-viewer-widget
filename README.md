@@ -20,6 +20,7 @@ This is image viewer widget, not an application itself. But you can make image v
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
 * Give the emitting signal when clicked prev, next, close buttons: ```prevSignal(), nextSignal(), closeSignal()```
+* When you've got the absoulte beginning/last of the files list, toast(<a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a>) will show up. You can get either direction of toast with ```getFirstPageToast```, ```getLastPageToast``` to change the toast's style such as font, color.
 
 ## Example
 Code Example (Extremely basic image viewer)
