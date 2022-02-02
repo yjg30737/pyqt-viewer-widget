@@ -190,3 +190,9 @@ class ViewerWidget(QWidget):
     def __close(self):
         self.__bottomWidget.setVisible(False)
         self.closeSignal.emit()
+
+    def getFirstPageToast(self):
+        return self.__firstPageToast
+
+    def getLastPageToast(self):
+        return self.__lastPageToast
