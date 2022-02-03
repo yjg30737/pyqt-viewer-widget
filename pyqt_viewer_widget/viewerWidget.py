@@ -83,7 +83,7 @@ class ViewerWidget(QWidget):
 
     def setFilenames(self, filenames: list, idx=0):
         filenames = self.__setOrdered(filenames)
-        self.__lst = []
+        self.__initVal()
 
         for filename in filenames:
             if os.path.isdir(filename):
