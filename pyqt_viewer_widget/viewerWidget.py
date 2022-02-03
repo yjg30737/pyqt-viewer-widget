@@ -79,7 +79,7 @@ class ViewerWidget(QWidget):
         self.__btnToggled()
 
     def __setOrdered(self, filenames: list):
-        return sorted(filenames, key=lambda f: int(re.sub('\D', '', f)))
+        return sorted(filenames, key=lambda f: int(re.sub(r'\D', '', f)))
 
     def setFilenames(self, filenames: list, idx=0):
         filenames = self.__setOrdered(filenames)
