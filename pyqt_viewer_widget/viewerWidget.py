@@ -1,4 +1,4 @@
-import os
+import os, re
 
 from PyQt5.QtGui import QKeySequence, QFont
 from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, QPushButton, QHBoxLayout, QLabel
@@ -78,13 +78,18 @@ class ViewerWidget(QWidget):
 
         self.__btnToggled()
 
+    def __setOrdered(self, filenames: list):
+        return sorted(filenames, key=lambda f: int(re.sub('\D', '', f)))
+
     def setFilenames(self, filenames: list, idx=0):
+        filenames = self.__setOrdered(filenames)
         self.__lst = []
 
         for filename in filenames:
             if os.path.isdir(filename):
                 dirname = filename
-                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in os.listdir(dirname)
+                filenames_in_dir = self.__setOrdered(os.listdir(dirname))
+                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in filenames_in_dir
                                    if self.__isImageFile(os.path.join(filename, file_in_dir))]
                 self.__lst.extend(image_filenames)
             else:
