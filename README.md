@@ -11,7 +11,9 @@ This is image viewer widget, not an application itself. But you can make image v
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
 
 ## Included Package
-* Pillow >= 9.0.0 (to check if file extension is image format or not)
+* Pillow >= 9.0.0 - to check if file extension is image format or not
+* <a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a> - to notify user the very beginning/last page when flip the page
+* <a href="https://github.com/yjg30737/pyqt-fitting-graphics-view.git">pyqt-fitting-graphics-view</a> - to use ```FittingGraphicsView``` as a parent class of ```ViewerGraphicsView``` in order to keep the image's aspect ratio constantly
 
 ## Feature
 * Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...], idx=0)```. ```idx``` is current index of files which you want to set. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package. 
