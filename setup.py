@@ -12,6 +12,7 @@ setup(
     install_requires=[
         'PyQt5>=5.8',
         'Pillow>=9.0.0',
-        'pyqt-toast @ git+https://git@github.com/yjg30737/pyqt-toast.git@main'
+        'pyqt-toast @ git+https://git@github.com/yjg30737/pyqt-toast.git@main',
+        'pyqt-fitting-graphics-view @ git+https://git@github.com/yjg30737/pyqt-fitting-graphics-view.git@main'
     ]
 )
