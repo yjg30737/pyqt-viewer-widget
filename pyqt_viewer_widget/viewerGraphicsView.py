@@ -16,12 +16,3 @@ class ViewerGraphicsView(FittingGraphicsView):
 
     def setIndex(self, index):
         self.setFilename(self.__filenames[index])
-
-    def __setPixmap(self, p):
-        self.__p = p
-        self._item = self._scene.addPixmap(self._p)
-        self.setScene(self._scene)
-
-    def resizeEvent(self, e):
-        if isinstance(self._item, QGraphicsItem):
-            self.fitInView(self._item, Qt.KeepAspectRatio)
