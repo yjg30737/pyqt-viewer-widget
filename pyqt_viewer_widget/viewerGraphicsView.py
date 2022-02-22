@@ -17,11 +17,6 @@ class ViewerGraphicsView(QGraphicsView):
         self.__scene = 0
         self.__graphicItem = 0
 
-    def __fit(self):
-        # restore default transform
-        if isinstance(self.__graphicItem, QGraphicsItem):
-            self.fitInView(self.__graphicItem, Qt.KeepAspectRatio)
-
     def setFilenames(self, filenames):
         self.__filenames = filenames
 
