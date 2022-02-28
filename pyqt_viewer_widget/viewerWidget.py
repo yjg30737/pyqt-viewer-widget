@@ -81,8 +81,12 @@ class ViewerWidget(QWidget):
     def __setOrdered(self, filenames: list):
         return sorted(filenames, key=lambda f: int(re.sub(r'\D', '', f)))
 
-    def setFilenames(self, filenames: list, idx=0):
+    def setFilenames(self, filenames: list, cur_filename: str):
         filenames = self.__setOrdered(filenames)
+        if os.path.isdir(cur_filename):
+            idx = 0
+        else:
+            idx = filenames.index(cur_filename)
         self.__initVal()
 
         for filename in filenames:
