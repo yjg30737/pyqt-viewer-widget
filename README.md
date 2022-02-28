@@ -16,7 +16,7 @@ This is image viewer widget, not an application itself. But you can make image v
 * <a href="https://github.com/yjg30737/pyqt-fitting-graphics-view.git">pyqt-fitting-graphics-view</a> - to use ```FittingGraphicsView``` as a parent class of ```ViewerGraphicsView``` in order to keep the image's aspect ratio constantly
 
 ## Feature
-* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames([filename1, filename2, dirname1...], idx=0)```. ```idx``` is current index of files which you want to set. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package. 
+* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames(filenames: list, cur_filename: str)```. ```cur_filename``` is file's name which you want to set among the ```filenames```. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package. 
 * Being able to get current filename with ```getCurrentFilename()```
 * Flip the page with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
