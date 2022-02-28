@@ -103,7 +103,10 @@ class ViewerWidget(QWidget):
         self.__execSettingPageWork()
 
     def getCurrentFilename(self):
-        return self.__lst[self.__cur_idx]
+        if len(self.__lst) <= self.__cur_idx:
+            return ''
+        else:
+            return self.__lst[self.__cur_idx]
 
     def __isImageFile(self, filename):
         res = ''
