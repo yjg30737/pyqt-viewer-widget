@@ -188,10 +188,12 @@ class ViewerWidget(QWidget):
         return super().keyReleaseEvent(e)
 
     def wheelEvent(self, e):
-        if e.angleDelta().y() < 0:
-            self._next()
-        else:
-            self._prev()
+        filename = self.getCurrentFilename()
+        if filename:
+            if e.angleDelta().y() < 0:
+                self._next()
+            else:
+                self._prev()
         return super().wheelEvent(e)
 
     def setBottomWidgetVisible(self, f: bool):
