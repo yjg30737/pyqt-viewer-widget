@@ -58,10 +58,10 @@ class ViewerWidget(QWidget):
         self.__nextBtn.clicked.connect(self._next)
         self.__closeBtn.clicked.connect(self.__close)
 
-        self._graphicsView = ViewerGraphicsView()
+        self._view = ViewerGraphicsView()
 
         self.__topWidget = QStackedWidget()
-        self.__topWidget.addWidget(self._graphicsView)
+        self.__topWidget.addWidget(self._view)
 
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
@@ -102,8 +102,8 @@ class ViewerWidget(QWidget):
 
         if len(self.__lst) > 0:
             self.__cur_idx = idx
-            self._graphicsView.setFilenames(self.__lst)
-            self._graphicsView.setIndex(idx)
+            self._view.setFilenames(self.__lst)
+            self._view.setIndex(idx)
 
         self.__execSettingPageWork()
 
@@ -131,7 +131,7 @@ class ViewerWidget(QWidget):
     def _prev(self):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
-            self._graphicsView.setIndex(self.__cur_idx)
+            self._view.setIndex(self.__cur_idx)
             self.__execSettingPageWork()
             self.prevSignal.emit()
             return 0
@@ -145,7 +145,7 @@ class ViewerWidget(QWidget):
     def _next(self):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
-            self._graphicsView.setIndex(self.__cur_idx)
+            self._view.setIndex(self.__cur_idx)
             self.__execSettingPageWork()
             self.nextSignal.emit()
             return 0
