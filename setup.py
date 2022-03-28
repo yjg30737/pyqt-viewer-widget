@@ -7,7 +7,7 @@ setup(
     author_email='yjg30737@gmail.com',
     license='MIT',
     packages=find_packages(),
-    description='PyQt viewer widget',
+    description='PyQt viewer widget (template)',
     url='https://github.com/yjg30737/pyqt-viewer-widget.git',
     install_requires=[
         'PyQt5>=5.8',
