@@ -79,7 +79,13 @@ class ViewerWidget(QWidget):
         self.__btnToggled()
 
     def __setOrdered(self, filenames: list):
-        return sorted(filenames, key=lambda f: int(re.sub(r'\D', '', f)))
+        # temporary measure
+        try:
+            # sorted by number
+            return sorted(filenames, key=lambda f: int(re.sub(r'\D', '', f)))
+        except Exception as e:
+            # sorted by string
+            return sorted(filenames)
 
     def setView(self, view: QWidget):
         self.__topWidget.removeWidget(self._view)
