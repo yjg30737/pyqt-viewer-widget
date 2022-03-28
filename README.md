@@ -1,5 +1,5 @@
 # pyqt-viewer-widget
-PyQt (Image) viewer widget(frame)
+PyQt (Image) viewer widget(template)
 
 ## Requirements
 PyQt5 >= 5.8
