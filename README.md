@@ -7,6 +7,8 @@ PyQt5 >= 5.8
 ## Overview
 This is image viewer widget, not an application itself. But you can make image viewer application with this. Check the example code below.
 
+This is for image by default.
+
 ## Setup
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
 
