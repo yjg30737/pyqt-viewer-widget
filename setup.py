@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyqt-viewer-widget',
-    version='0.6.2',
+    version='0.6.3',
     author='Jung Gyu Yoon',
     author_email='yjg30737@gmail.com',
     license='MIT',
     packages=find_packages(),
-    description='PyQt Viewer Widget',
+    description='PyQt viewer widget',
     url='https://github.com/yjg30737/pyqt-viewer-widget.git',
     install_requires=[
         'PyQt5>=5.8',
