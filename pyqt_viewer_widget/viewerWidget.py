@@ -7,7 +7,7 @@ from PyQt5.QtCore import pyqtSignal, Qt
 from PIL import Image
 from pyqt_toast import Toast
 
-from pyqt_viewer_widget.viewerGraphicsView import ViewerGraphicsView
+from pyqt_fitting_graphics_view.fittingGraphicsView import FittingGraphicsView
 
 
 class ViewerWidget(QWidget):
@@ -58,7 +58,7 @@ class ViewerWidget(QWidget):
         self.__nextBtn.clicked.connect(self._next)
         self.__closeBtn.clicked.connect(self.__close)
 
-        self._view = ViewerGraphicsView()
+        self._view = FittingGraphicsView()
 
         self.__topWidget = QStackedWidget()
         self.__topWidget.addWidget(self._view)
@@ -110,8 +110,7 @@ class ViewerWidget(QWidget):
 
         if len(self.__lst) > 0:
             self.__cur_idx = idx
-            self._view.setFilenames(self.__lst)
-            self._view.setIndex(idx)
+            self._view.setFilename(self.__lst[self.__cur_idx])
 
         self.__execSettingPageWork()
 
@@ -139,7 +138,7 @@ class ViewerWidget(QWidget):
     def _prev(self):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
-            self._view.setIndex(self.__cur_idx)
+            self._view.setFilename(self.__lst[self.__cur_idx])
             self.__execSettingPageWork()
             self.prevSignal.emit()
             return 0
@@ -153,7 +152,7 @@ class ViewerWidget(QWidget):
     def _next(self):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
-            self._view.setIndex(self.__cur_idx)
+            self._view.setFilename(self.__lst[self.__cur_idx])
             self.__execSettingPageWork()
             self.nextSignal.emit()
             return 0
