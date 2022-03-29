@@ -106,6 +106,7 @@ class ViewerWidget(QWidget):
     def setCurrentIndex(self, idx):
         self.__cur_idx = idx
         self._view.setFilename(self.__filenames[idx])
+        self.__execSettingPageWork()
 
     def getCurrentIndex(self) -> int:
         return self.__cur_idx
@@ -146,8 +147,6 @@ class ViewerWidget(QWidget):
         if len(self.__filenames) > 0:
             self.setCurrentIndex(idx)
 
-        self.__execSettingPageWork()
-
     def __isImageFile(self, filename):
         res = ''
         try:
@@ -166,7 +165,6 @@ class ViewerWidget(QWidget):
     def _prev(self):
         if self.__prevBtn.isEnabled():
             self.setCurrentIndex(self.__cur_idx-1)
-            self.__execSettingPageWork()
             self.prevSignal.emit()
             return 0
         else:
@@ -179,7 +177,6 @@ class ViewerWidget(QWidget):
     def _next(self):
         if self.__nextBtn.isEnabled():
             self.setCurrentIndex(self.__cur_idx+1)
-            self.__execSettingPageWork()
             self.nextSignal.emit()
             return 0
         else:
