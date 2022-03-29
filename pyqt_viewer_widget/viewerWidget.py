@@ -147,6 +147,9 @@ class ViewerWidget(QWidget):
         if len(self.__filenames) > 0:
             self.setCurrentIndex(idx)
 
+    def getFilenames(self) -> list:
+        return self.__filenames
+
     def __isImageFile(self, filename):
         res = ''
         try:
