@@ -95,6 +95,13 @@ class ViewerWidget(QWidget):
     def getView(self) -> QWidget:
         return self._view
 
+    def setCurrentIndex(self, idx):
+        self.__cur_idx = idx
+        self._view.setFilename(self.__filenames[idx])
+
+    def getCurrentIndex(self) -> int:
+        return self.__cur_idx
+
     def setCurrentFilename(self, idx):
         self.__cur_idx = idx
         self._view.setFilename(self.__filenames[idx])
