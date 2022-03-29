@@ -127,7 +127,7 @@ class ViewerWidget(QWidget):
             idx = 0
         else:
             idx = filenames.index(cur_filename)
-        self.__initVal()
+        self.__resetVal()
 
         for filename in filenames:
             if os.path.isdir(filename):
