@@ -102,9 +102,9 @@ class ViewerWidget(QWidget):
     def getCurrentIndex(self) -> int:
         return self.__cur_idx
 
-    def setCurrentFilename(self, idx):
-        self.__cur_idx = idx
-        self._view.setFilename(self.__filenames[idx])
+    def setCurrentFilename(self, filename: str):
+        idx = self.__filenames.index(filename)
+        self.setCurrentIndex(idx)
 
     def getCurrentFilename(self):
         if len(self.__filenames) <= self.__cur_idx:
