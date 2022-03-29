@@ -22,7 +22,7 @@ class ViewerWidget(QWidget):
         self.__initUi()
 
     def __initVal(self):
-        self.__lst = []
+        self.__filenames = []
         self.__cur_idx = 0
 
     def __initUi(self):
@@ -109,22 +109,22 @@ class ViewerWidget(QWidget):
                 filenames_in_dir = self.__setOrdered(os.listdir(dirname))
                 image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in filenames_in_dir
                                    if self.__isImageFile(os.path.join(filename, file_in_dir))]
-                self.__lst.extend(image_filenames)
+                self.__filenames.extend(image_filenames)
             else:
                 if self.__isImageFile(filename):
-                    self.__lst.append(filename)
+                    self.__filenames.append(filename)
 
-        if len(self.__lst) > 0:
+        if len(self.__filenames) > 0:
             self.__cur_idx = idx
-            self._view.setFilename(self.__lst[self.__cur_idx])
+            self._view.setFilename(self.__filenames[self.__cur_idx])
 
         self.__execSettingPageWork()
 
     def getCurrentFilename(self):
-        if len(self.__lst) <= self.__cur_idx:
+        if len(self.__filenames) <= self.__cur_idx:
             return ''
         else:
-            return self.__lst[self.__cur_idx]
+            return self.__filenames[self.__cur_idx]
 
     def __isImageFile(self, filename):
         res = ''
@@ -139,12 +139,12 @@ class ViewerWidget(QWidget):
     def __btnToggled(self):
         idx = self.__cur_idx
         self.__prevBtn.setEnabled(idx > 0)
-        self.__nextBtn.setEnabled(idx < len(self.__lst) - 1)
+        self.__nextBtn.setEnabled(idx < len(self.__filenames) - 1)
 
     def _prev(self):
         if self.__prevBtn.isEnabled():
             self.__cur_idx -= 1
-            self._view.setFilename(self.__lst[self.__cur_idx])
+            self._view.setFilename(self.__filenames[self.__cur_idx])
             self.__execSettingPageWork()
             self.prevSignal.emit()
             return 0
@@ -158,7 +158,7 @@ class ViewerWidget(QWidget):
     def _next(self):
         if self.__nextBtn.isEnabled():
             self.__cur_idx += 1
-            self._view.setFilename(self.__lst[self.__cur_idx])
+            self._view.setFilename(self.__filenames[self.__cur_idx])
             self.__execSettingPageWork()
             self.nextSignal.emit()
             return 0
@@ -175,7 +175,7 @@ class ViewerWidget(QWidget):
         self.__setWindowTitleBasedOnCurrentFileName()
 
     def __setPageLabel(self):
-        self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__lst)))
+        self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__filenames)))
 
     def __setWindowTitleBasedOnCurrentFileName(self):
         self.window().setWindowTitle(self.getCurrentFilename())
