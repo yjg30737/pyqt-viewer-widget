@@ -23,6 +23,11 @@ class ViewerWidget(QWidget):
 
     def __initVal(self):
         self.__filenames = []
+        self.__extensions = []
+        self.__cur_idx = 0
+
+    def __resetVal(self):
+        self.__filenames = []
         self.__cur_idx = 0
 
     def __initUi(self):
@@ -87,6 +92,9 @@ class ViewerWidget(QWidget):
             # sorted by string
             return sorted(filenames)
 
+    def setExtensionsExceptForImage(self, extensions: list):
+        self.__extensions = extensions
+
     def setView(self, view: QWidget):
         self.__topWidget.removeWidget(self._view)
         self._view = view
@@ -130,6 +138,10 @@ class ViewerWidget(QWidget):
             else:
                 if self.__isImageFile(filename):
                     self.__filenames.append(filename)
+                else:
+                    if len(self.__extensions) > 0:
+                        if os.path.splitext(filename)[-1] in self.__extensions:
+                            self.__filenames.append(filename)
 
         if len(self.__filenames) > 0:
             self.setCurrentIndex(idx)
