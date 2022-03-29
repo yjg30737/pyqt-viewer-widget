@@ -95,6 +95,16 @@ class ViewerWidget(QWidget):
     def getView(self) -> QWidget:
         return self._view
 
+    def setCurrentFilename(self, idx):
+        self.__cur_idx = idx
+        self._view.setFilename(self.__filenames[idx])
+
+    def getCurrentFilename(self):
+        if len(self.__filenames) <= self.__cur_idx:
+            return ''
+        else:
+            return self.__filenames[self.__cur_idx]
+
     def setFilenames(self, filenames: list, cur_filename: str):
         filenames = self.__setOrdered(filenames)
         if os.path.isdir(cur_filename):
@@ -118,16 +128,6 @@ class ViewerWidget(QWidget):
             self.setCurrentFilename(idx)
 
         self.__execSettingPageWork()
-
-    def setCurrentFilename(self, idx):
-        self.__cur_idx = idx
-        self._view.setFilename(self.__filenames[idx])
-
-    def getCurrentFilename(self):
-        if len(self.__filenames) <= self.__cur_idx:
-            return ''
-        else:
-            return self.__filenames[self.__cur_idx]
 
     def __isImageFile(self, filename):
         res = ''
