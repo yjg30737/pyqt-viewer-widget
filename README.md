@@ -19,7 +19,8 @@ This is for image by default.
 
 ## Feature
 * Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames(filenames: list, cur_filename: str)```. ```cur_filename``` is file's name which you want to set among the ```filenames```. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package.
-* `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`. The latter one can be used for checking at least one file exists or not.
+* `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
+* `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`.
 * Flip the page back and forth with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
