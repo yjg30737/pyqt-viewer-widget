@@ -120,6 +120,10 @@ class ViewerWidget(QWidget):
 
         self.__execSettingPageWork()
 
+    def setCurrentFilename(self, idx):
+        self.__cur_idx = idx
+        self._view.setFilename(self.__filenames[idx])
+
     def getCurrentFilename(self):
         if len(self.__filenames) <= self.__cur_idx:
             return ''
