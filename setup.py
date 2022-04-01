@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyqt-viewer-widget',
-    version='0.6.6',
+    version='0.6.7',
     author='Jung Gyu Yoon',
     author_email='yjg30737@gmail.com',
     license='MIT',
