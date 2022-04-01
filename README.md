@@ -5,9 +5,15 @@ PyQt viewer widget
 PyQt5 >= 5.8
 
 ## Overview
-This is image viewer widget, not an application itself. But you can make image viewer application with this. Check the example code below.
+This is image viewer widget, not an application itself. But you can make image viewer application out of this.
 
-This is for image by default.
+For example, apps below are using this efficiently.
+
+* <a href="https://github.com/yjg30737/pyqt-comic-viewer.git">pyqt-comic-viewer</a> - Comic reading app 
+* <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a> - HTML viewer app
+* <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
+
+This is for image by default, but you can change its view for html or svg files.
 
 ## Setup
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
@@ -30,11 +36,6 @@ This is for image by default.
 * `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
 * `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
 * `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
-
-## Usage Examples
-* <a href="https://github.com/yjg30737/pyqt-comic-viewer.git">pyqt-comic-viewer</a> - Comic reading app 
-* <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a> - HTML viewer app
-* <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
 
 ## Simple Example
 Code Example (Extremely basic image viewer)
