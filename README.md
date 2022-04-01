@@ -1,5 +1,5 @@
 # pyqt-viewer-widget
-PyQt viewer widget(template)
+PyQt viewer widget
 
 ## Requirements
 PyQt5 >= 5.8
@@ -31,7 +31,12 @@ This is for image by default.
 * `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
 * `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 
-## Example
+## Usage Examples
+* <a href="https://github.com/yjg30737/pyqt-comic-viewer.git">pyqt-comic-viewer</a>
+* <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a>
+* <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a>
+
+## Simple Example
 Code Example (Extremely basic image viewer)
 ```python
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
