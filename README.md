@@ -32,9 +32,9 @@ This is for image by default.
 * `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 
 ## Usage Examples
-* <a href="https://github.com/yjg30737/pyqt-comic-viewer.git">pyqt-comic-viewer</a>
-* <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a>
-* <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a>
+* <a href="https://github.com/yjg30737/pyqt-comic-viewer.git">pyqt-comic-viewer</a> - Comic reading app 
+* <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a> - HTML viewer app
+* <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
 
 ## Simple Example
 Code Example (Extremely basic image viewer)
