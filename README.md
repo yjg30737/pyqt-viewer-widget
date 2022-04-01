@@ -13,7 +13,7 @@ For example, apps below are using this efficiently.
 * <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a> - HTML viewer app
 * <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
 
-This is for image by default, but you can change its view for html or svg files.
+This is for image by default, but you can change its view for html or svg files like pyqt-html-viewer, pyqt-svg-viewer to set view which is suitable for extension. In svg's case, you can set `QSvgWidget` to view.
 
 ## Setup
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
