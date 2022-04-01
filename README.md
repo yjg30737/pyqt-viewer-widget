@@ -29,6 +29,7 @@ This is for image by default.
 * `setView(view: QWidget)`, `getView() -> QWidget`
 * `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
 * `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
+* `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 
 ## Example
 Code Example (Extremely basic image viewer)
