@@ -198,7 +198,7 @@ class ViewerWidget(QWidget):
         self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__filenames)))
 
     def __setWindowTitleBasedOnCurrentFileName(self):
-        self.window().setWindowTitle(self.getCurrentFilename())
+        self.window().setWindowTitle(os.path.basename(self.getCurrentFilename()))
 
     def keyPressEvent(self, e):
         if (e.key() == 61 or e.matches(QKeySequence.ZoomIn)) or e.matches(QKeySequence.ZoomOut):
