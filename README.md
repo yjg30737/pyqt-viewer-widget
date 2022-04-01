@@ -27,6 +27,8 @@ This is for image by default.
 * Give the emitting signal when clicked prev, next, close buttons: ```prevSignal(), nextSignal(), closeSignal()```
 * When you've got the absoulte beginning/last of the files list, toast(<a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a>) will show up. You can get either direction of toast with ```getFirstPageToast```, ```getLastPageToast``` to change the toast's style such as font, color.
 * `setView(view: QWidget)`, `getView() -> QWidget`
+* `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
+* `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
 
 ## Example
 Code Example (Extremely basic image viewer)
@@ -72,7 +74,6 @@ if __name__ == "__main__":
 ```
 
 Result
-
 
 https://user-images.githubusercontent.com/55078043/145040849-0c7326ed-e043-4a8b-8c55-c9b7e1d1756e.mp4
 
