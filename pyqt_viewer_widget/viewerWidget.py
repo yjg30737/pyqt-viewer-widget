@@ -67,9 +67,11 @@ class ViewerWidget(QWidget):
         self.__nextBtn.clicked.connect(self._next)
         self.__closeBtn.clicked.connect(self.__close)
 
+        self._home = QWidget()
         self._view = FittingGraphicsView()
 
         self.__topWidget = QStackedWidget()
+        self.__topWidget.addWidget(self._home)
         self.__topWidget.addWidget(self._view)
 
         lay = QVBoxLayout()
@@ -119,8 +121,10 @@ class ViewerWidget(QWidget):
         self.__cur_idx = idx
         if len(self.__filenames) == 0:
             self.clearSignal.emit()
+            self.__topWidget.setCurrentIndex(0)
         else:
             self._view.setFilename(self.__filenames[idx])
+            self.__topWidget.setCurrentIndex(idx)
         self.__execSettingPageWork()
 
     def getCurrentIndex(self) -> int:
