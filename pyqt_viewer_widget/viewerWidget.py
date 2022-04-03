@@ -107,8 +107,7 @@ class ViewerWidget(QWidget):
     def setCurrentIndex(self, idx):
         self.__cur_idx = idx
         if len(self.__filenames) == 0:
-            print('there is no file, should be reset')
-            self.closeSignal.emit()
+            self.clearSignal.emit()
         else:
             self._view.setFilename(self.__filenames[idx])
         self.__execSettingPageWork()
