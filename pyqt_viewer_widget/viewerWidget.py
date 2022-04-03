@@ -27,7 +27,7 @@ class ViewerWidget(QWidget):
         self.__cur_idx = 0
 
         self.__extensions = []
-        self.__window_title_as_current_file_flag = False
+        self.__window_title_based_on_current_file_flag = False
 
     def __resetVal(self):
         self.__filenames = []
@@ -94,6 +94,9 @@ class ViewerWidget(QWidget):
         except Exception as e:
             # sorted by string
             return sorted(filenames)
+
+    def isWindowTitleBasedOnCurrentFileEnabled(self) -> bool:
+        return self.__window_title_based_on_current_file_flag
 
     def setWindowTitleBasedOnCurrentFileEnabled(self, f: bool):
         self.__window_title_based_on_current_file_flag = f
