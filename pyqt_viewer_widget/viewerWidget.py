@@ -106,7 +106,11 @@ class ViewerWidget(QWidget):
 
     def setCurrentIndex(self, idx):
         self.__cur_idx = idx
-        self._view.setFilename(self.__filenames[idx])
+        if len(self.__filenames) == 0:
+            print('there is no file, should be reset')
+            self.closeSignal.emit()
+        else:
+            self._view.setFilename(self.__filenames[idx])
         self.__execSettingPageWork()
 
     def getCurrentIndex(self) -> int:
@@ -251,19 +255,7 @@ class ViewerWidget(QWidget):
         filenames = self.getFilenames()
         maintain_cur_idx_if_cur_idx_file_still_remain = filenames[cur_idx] in filenames_to_remove
 
+        self.__cur_idx = max(0, filenames.index(filenames_to_remove[0])-1)
         for filename in filenames_to_remove:
             filenames.remove(filename)
-
-        if len(filenames) == 0:
-            self.clearSignal.emit()
-        elif len(filenames) > cur_idx:
-            if maintain_cur_idx_if_cur_idx_file_still_remain:
-                cur_filename = filenames[cur_idx]
-                self.setFilenames(filenames, cur_filename)
-            else:
-                cur_filename = filenames[cur_idx - (len(filenames)-len(filenames_to_remove))]
-                self.setFilenames(filenames, cur_filename)
-        elif len(filenames) <= cur_idx:
-            cur_filename = filenames[-1]
-            self.setFilenames(filenames, cur_filename)
-        self.__execSettingPageWork()
+        self.setCurrentIndex(self.__cur_idx)
