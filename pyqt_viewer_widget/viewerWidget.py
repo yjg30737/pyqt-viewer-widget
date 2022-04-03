@@ -109,6 +109,11 @@ class ViewerWidget(QWidget):
     def setExtensionsExceptForImage(self, extensions: list):
         self.__extensions = extensions
 
+    def setHome(self, home_widget: QWidget):
+        self.__topWidget.removeWidget(self._home)
+        self._home = home_widget
+        self.__topWidget.addWidget(self._home)
+
     def setView(self, view: QWidget):
         self.__topWidget.removeWidget(self._view)
         self._view = view
@@ -121,10 +126,10 @@ class ViewerWidget(QWidget):
         self.__cur_idx = idx
         if len(self.__filenames) == 0:
             self.clearSignal.emit()
-            self.__topWidget.setCurrentIndex(0)
+            self.__topWidget.setCurrentWidget(self._home)
         else:
             self._view.setFilename(self.__filenames[idx])
-            self.__topWidget.setCurrentIndex(idx)
+            self.__topWidget.setCurrentWidget(self._view)
         self.__execSettingPageWork()
 
     def getCurrentIndex(self) -> int:
