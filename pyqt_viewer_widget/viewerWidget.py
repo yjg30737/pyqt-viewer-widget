@@ -95,7 +95,7 @@ class ViewerWidget(QWidget):
             # sorted by string
             return sorted(filenames)
 
-    def setWindowTitleAsCurrentFileEnabled(self, f: bool):
+    def setWindowTitleBasedOnCurrentFileEnabled(self, f: bool):
         self.__window_title_as_current_file_flag = f
 
     def setExtensionsExceptForImage(self, extensions: list):
