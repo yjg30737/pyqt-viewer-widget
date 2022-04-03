@@ -37,6 +37,7 @@ class ViewerWidget(QWidget):
         self.__page_label_prefix = 'Page: '
         self.__page_label_text = self.__page_label_prefix + '{0}/{1}'
         self.__pageLabel = QLabel(self.__page_label_prefix)
+
         self.__prevBtn = QPushButton('Prev')
         self.__nextBtn = QPushButton('Next')
         self.__closeBtn = QPushButton('Close')
@@ -58,7 +59,6 @@ class ViewerWidget(QWidget):
 
         self.__bottomWidget = QWidget()
         self.__bottomWidget.setLayout(lay)
-        lay.setContentsMargins(5, 5, 5, 5)
 
         self.__prevBtn.clicked.connect(self._prev)
         self.__nextBtn.clicked.connect(self._next)
