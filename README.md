@@ -36,6 +36,11 @@ This is for image by default, but you can change its view for html or svg files 
 * `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
 * `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
 * `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
+* `setWindowTitlePrefix(title: str)` to set the window title prefix such as "Image Viewer" in "Image Viewer - abc.png".
+* `setWindowTitleBasedOnCurrentFileEnabled(f: bool)` to set the title based on current file like "Image Viewer - def.png" if current file of viewer is "def.png".
+* Both `setWindowTitlePrefix` and `setWindowTitleBasedOnCurrentFileEnabled` should be called if you want to set window title based on current file.
+* `isWindowTitleBasedOnCurrentFileEnabled() -> bool`
+* `removeSomeFilesFromViewer(filenames_to_remove: list)` is used when you want to remove some files in viewer, not all files. If `filenames_to_remove` includes the file name which was not included in list, error will be occured.
 
 ## Simple Example
 Code Example (Extremely basic image viewer)
