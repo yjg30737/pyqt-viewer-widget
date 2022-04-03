@@ -162,7 +162,7 @@ class ViewerWidget(QWidget):
             return res
 
     def __btnToggled(self):
-        idx = self.__cur_idx
+        idx = min(len(self.__filenames)-1, self.__cur_idx)
         self.__prevBtn.setEnabled(idx > 0)
         self.__nextBtn.setEnabled(idx < len(self.__filenames) - 1)
 
