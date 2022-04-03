@@ -203,7 +203,8 @@ class ViewerWidget(QWidget):
     def __execSettingPageWork(self):
         self.__btnToggled()
         self.__setPageLabel()
-        self.__setWindowTitleBasedOnCurrentFileName()
+        if self.isWindowTitleBasedOnCurrentFileEnabled():
+            self.__setWindowTitleBasedOnCurrentFileName()
 
     def __setPageLabel(self):
         cur_page = min(len(self.__filenames), self.__cur_idx + 1)
