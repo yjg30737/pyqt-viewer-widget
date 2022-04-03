@@ -27,6 +27,7 @@ class ViewerWidget(QWidget):
         self.__cur_idx = 0
 
         self.__extensions = []
+        self.__windowTitlePrefix = ''
         self.__window_title_based_on_current_file_flag = False
 
     def __resetVal(self):
@@ -94,6 +95,9 @@ class ViewerWidget(QWidget):
         except Exception as e:
             # sorted by string
             return sorted(filenames)
+
+    def setWindowTitlePrefix(self, title: str):
+        self.__windowTitlePrefix = title
 
     def isWindowTitleBasedOnCurrentFileEnabled(self) -> bool:
         return self.__window_title_based_on_current_file_flag
@@ -211,7 +215,10 @@ class ViewerWidget(QWidget):
         self.__pageLabel.setText(self.__page_label_text.format(cur_page, len(self.__filenames)))
 
     def __setWindowTitleBasedOnCurrentFileName(self):
-        self.window().setWindowTitle(os.path.basename(self.getCurrentFilename()))
+        if self.getCurrentFilename():
+            self.window().setWindowTitle(self.__windowTitlePrefix + ' - ' + os.path.basename(self.getCurrentFilename()))
+        else:
+            self.window().setWindowTitle(self.__windowTitlePrefix)
 
     def keyPressEvent(self, e):
         if (e.key() == 61 or e.matches(QKeySequence.ZoomIn)) or e.matches(QKeySequence.ZoomOut):
