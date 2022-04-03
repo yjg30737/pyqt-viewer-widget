@@ -266,3 +266,4 @@ class ViewerWidget(QWidget):
         elif len(filenames) <= cur_idx:
             cur_filename = filenames[-1]
             self.setFilenames(filenames, cur_filename)
+        self.__execSettingPageWork()
