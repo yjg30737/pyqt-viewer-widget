@@ -13,6 +13,7 @@ from pyqt_fitting_graphics_view.fittingGraphicsView import FittingGraphicsView
 class ViewerWidget(QWidget):
     prevSignal = pyqtSignal()
     nextSignal = pyqtSignal()
+    clearSignal = pyqtSignal()
     closeSignal = pyqtSignal()
 
     def __init__(self):
@@ -254,7 +255,7 @@ class ViewerWidget(QWidget):
             filenames.remove(filename)
 
         if len(filenames) == 0:
-            pass
+            self.clearSignal.emit()
         elif len(filenames) > cur_idx:
             if maintain_cur_idx_if_cur_idx_file_still_remain:
                 cur_filename = filenames[cur_idx]
