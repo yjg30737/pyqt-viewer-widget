@@ -199,7 +199,8 @@ class ViewerWidget(QWidget):
         self.__setWindowTitleBasedOnCurrentFileName()
 
     def __setPageLabel(self):
-        self.__pageLabel.setText(self.__page_label_text.format(self.__cur_idx + 1, len(self.__filenames)))
+        cur_page = min(len(self.__filenames), self.__cur_idx + 1)
+        self.__pageLabel.setText(self.__page_label_text.format(cur_page, len(self.__filenames)))
 
     def __setWindowTitleBasedOnCurrentFileName(self):
         self.window().setWindowTitle(os.path.basename(self.getCurrentFilename()))
