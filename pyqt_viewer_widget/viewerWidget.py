@@ -87,7 +87,7 @@ class ViewerWidget(QWidget):
         self.__firstPageToast.setFont(QFont('Arial', 20))
         self.__lastPageToast.setFont(QFont('Arial', 20))
 
-        self.__execSettingPageWork()
+        self.setCurrentIndex(0)
 
     def __setOrdered(self, filenames: list):
         # temporary measure
