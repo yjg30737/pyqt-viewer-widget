@@ -114,6 +114,9 @@ class ViewerWidget(QWidget):
         self._home = home_widget
         self.__topWidget.addWidget(self._home)
 
+    def goHome(self):
+        self.__topWidget.setCurrentWidget(self._home)
+
     def setView(self, view: QWidget):
         self.__topWidget.removeWidget(self._view)
         self._view = view
@@ -126,7 +129,7 @@ class ViewerWidget(QWidget):
         self.__cur_idx = idx
         if len(self.__filenames) == 0:
             self.clearSignal.emit()
-            self.__topWidget.setCurrentWidget(self._home)
+            self.goHome()
         else:
             self._view.setFilename(self.__filenames[idx])
             self.__topWidget.setCurrentWidget(self._view)
