@@ -39,6 +39,7 @@ This is for image by default, but you can change its view for html or svg files 
 * `setWindowTitleBasedOnCurrentFileEnabled(f: bool, prefix: str)` to set the title based on current file like "Prefix - def.png" if current file of viewer is "def.png". You can activate the feature by giving `True` to first argument `f`. You can give the default window title to `prefix`.
 * `isWindowTitleBasedOnCurrentFileEnabled() -> bool`
 * `removeSomeFilesFromViewer(filenames_to_remove: list)` is used when you want to remove some files in viewer, not all files. If `filenames_to_remove` includes the file name which was not included in list, error will be occured.
+* `setHome(widget: QWidget)` to set home page widget, `goHome()`.
 
 ## Simple Example
 Code Example (Extremely basic image viewer)
