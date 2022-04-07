@@ -151,7 +151,7 @@ class ViewerWidget(QWidget):
         else:
             return self.__filenames[self.__cur_idx]
 
-    def __getFilenamesInDirectory(self, dirname) -> list:
+    def __getFilenamesInDirectory(self, dirname: str) -> list:
         filenames = [os.path.join(dirname, filename).replace(os.path.sep, posixpath.sep) for filename in
                      os.listdir(dirname)]
         return filenames
