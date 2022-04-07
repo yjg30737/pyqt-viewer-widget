@@ -45,7 +45,7 @@ For example, apps below are using this efficiently.
 ## Simple Example
 Code Example (Extremely basic image viewer)
 ```python
-import os, posixpath
+import os
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 from pyqt_viewer_widget import ViewerWidget
