@@ -24,7 +24,10 @@ This is for image by default, but you can change its view for html or svg files 
 * <a href="https://github.com/yjg30737/pyqt-fitting-graphics-view.git">pyqt-fitting-graphics-view</a> - main view
 
 ## Feature
-* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to ```setFilenames(filenames: list, cur_filename: str)```. ```cur_filename``` is file's name which you want to set among the ```filenames```. ```setFilenames``` function filters the none-image files with private function using ```Image``` module in ```Pillow``` package.
+Filters the none-image files with private function using ```Image``` module in ```Pillow``` package.
+* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to 
+* `addFilenames(filenames: list, cur_filename: str)` - Add filenames. ```cur_filename``` is file's name which you want to set as current file.
+* `setFilenames(filenames: list, cur_filename: str)`.
 * `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
 * `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`.
 * Flip the page back and forth with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
