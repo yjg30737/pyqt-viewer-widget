@@ -59,10 +59,8 @@ class MainWindow(QMainWindow):
     def __initUi(self):
         self.__viewerWidget = ViewerWidget()
         dirname = os.path.join(os.getcwd(), 'viewerWidgetExampleImagesDir')
-        filenames = [os.path.join(dirname, filename).replace(os.path.sep, posixpath.sep) for filename in
-                     os.listdir(dirname)]
         self.__viewerWidget.setExtensions(['.jpg'])
-        self.__viewerWidget.setFilenames(filenames)
+        self.__viewerWidget.setDirectory(dirname)
         self.__viewerWidget.closeSignal.connect(self.__bottomWidgetClosed)
 
         self.setCentralWidget(self.__viewerWidget)
