@@ -151,17 +151,17 @@ class ViewerWidget(QWidget):
         else:
             return self.__filenames[self.__cur_idx]
 
-    def __getOsDependantFilenames(self, dirname) -> list:
+    def __getFilenamesInDirectory(self, dirname) -> list:
         filenames = [os.path.join(dirname, filename).replace(os.path.sep, posixpath.sep) for filename in
                      os.listdir(dirname)]
         return filenames
 
     def setDirectory(self, dirname: str, cur_filename: str = ''):
-        filenames = self.__getOsDependantFilenames(dirname)
+        filenames = self.__getFilenamesInDirectory(dirname)
         self.setFilenames(filenames, cur_filename)
 
     def addDirectory(self, dirname: str, cur_filename: str = ''):
-        filenames = self.__getOsDependantFilenames(dirname)
+        filenames = self.__getFilenamesInDirectory(dirname)
         self.addFilenames(filenames, cur_filename)
 
     def setFilenames(self, filenames: list, cur_filename: str = ''):
