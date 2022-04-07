@@ -8,6 +8,23 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/default.min.css">
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        
+        <style>
+            .carousel.carousel-fade .carousel-item {
+            display: block;
+            opacity: 0;
+            transition: opacity ease-out .7s;
+            }
+
+            .carousel.carousel-fade .carousel-item.active {
+                opacity: 1 !important;
+            }
+        </style>
+        
     </head>
     <body>
         <div class="container-fluid mx-auto m-1">
@@ -17,14 +34,14 @@
             </div>
             <div class="text-center border rounded shadow-sm">
                 <img class="center-block border rounded mt-3 mb-3 w-50" src="viewer_widget.png"><br>
-                <div id="demo" class="center-block mx-auto carousel slide mb-3 w-75" data-ride="carousel">
+                <p>You can make a bunch of stuff with Viewer Widget like below.</p>
+                <div id="previewCarousel" class="center-block mx-auto carousel slide carousel-fade mb-3 w-75" data-ride="carousel">
                     <!-- Indicators -->
                     <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
+                        <li data-target="#previewCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#previewCarousel" data-slide-to="1"></li>
+                        <li data-target="#previewCarousel" data-slide-to="2"></li>
                     </ul>
-                    <p>You can make a bunch of stuff with Viewer Widget like below.</p>
                     <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -47,13 +64,23 @@
                         </div>
                     </div>
                     <!-- Left and right controls -->
-                    <a class="carousel-control-prev w-50" href="#demo" data-slide="prev">
+                    <a class="carousel-control-prev w-50" href="#previewCarousel" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </a>
-                    <a class="carousel-control-next w-50" href="#demo" data-slide="next">
+                    <a class="carousel-control-next w-50" href="#previewCarousel" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
+                </div>
+            <div>
+                <pre>
+                    <code class="python">
+                        import os, sys
+    
+                        class Something:
+    
+                    </code>
+                </pre>
             </div>
         </div>
     </body>
