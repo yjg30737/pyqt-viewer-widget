@@ -23,7 +23,9 @@ For example, apps below are using this efficiently.
 ## Feature
 * `setExtensions(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 * `addFilenames(filenames: list, cur_filename: str = '')` - Add filenames. ```cur_filename``` is file's name which you want to set as current file.
-* `setFilenames(filenames: list, cur_filename: str = '')`. - Clear file list before adding files.
+* `setFilenames(filenames: list, cur_filename: str = '')` - Clear file list before adding files.
+* `addDirectory(dirname: str, cur_filename: str = '')` - Add files in the directory
+* `setDirectory(dirname: str, cur_filename: str = '')` - Clear file list before adding files in the directory
 * `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
 * `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`.
 * `clear()`
