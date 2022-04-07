@@ -158,14 +158,13 @@ class ViewerWidget(QWidget):
 
     def addFilenames(self, filenames: list, cur_filename: str):
         filenames = self.__setOrdered(filenames)
+        for filename in filenames:
+            if os.path.splitext(filename)[-1] in self.__extensions:
+                self.__filenames.append(filename)
         if os.path.isdir(cur_filename):
             idx = 0
         else:
-            idx = filenames.index(cur_filename)
-        for filename in filenames:
-            if len(self.__extensions) > 0:
-                if os.path.splitext(filename)[-1] in self.__extensions:
-                    self.__filenames.append(filename)
+            idx = self.__filenames.index(cur_filename)
 
         if len(self.__filenames) > 0:
             self.setCurrentIndex(idx)
