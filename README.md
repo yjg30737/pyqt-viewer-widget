@@ -13,19 +13,15 @@ For example, apps below are using this efficiently.
 * <a href="https://github.com/yjg30737/pyqt-html-viewer.git">pyqt-html-viewer</a> - HTML viewer app
 * <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
 
-This is for image by default, but you can change its view for html or svg files like pyqt-html-viewer, pyqt-svg-viewer to set view which is suitable for extension. In svg's case, you can set `QSvgWidget` to view.
-
 ## Setup
 ```pip3 install git+https://github.com/yjg30737/pyqt-viewer-widget.git --upgrade```
 
 ## Included Package
-* Pillow >= 9.0.0 - to check if file extension is image format or not
 * <a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a> - to notify user the very beginning/last page when flip the page
 * <a href="https://github.com/yjg30737/pyqt-fitting-graphics-view.git">pyqt-fitting-graphics-view</a> - main view
 
 ## Feature
-Filters the none-image files with private function using ```Image``` module in ```Pillow``` package.
-* Being able to show image files in certain directory by giving the directory name and image files' names as arguments to 
+* `setExtensions(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 * `addFilenames(filenames: list, cur_filename: str)` - Add filenames. ```cur_filename``` is file's name which you want to set as current file.
 * `setFilenames(filenames: list, cur_filename: str)`. - Clear file list before adding files.
 * `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
@@ -39,7 +35,6 @@ Filters the none-image files with private function using ```Image``` module in `
 * `setView(view: QWidget)`, `getView() -> QWidget`
 * `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
 * `getFirstPageToast() -> Toast`, `getLastPageToast() -> Toast`
-* `setExtensionsExceptForImage(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
 * `setWindowTitleBasedOnCurrentFileEnabled(f: bool, prefix: str)` to set the title based on current file like "Prefix - def.png" if current file of viewer is "def.png". You can activate the feature by giving `True` to first argument `f`. You can give the default window title to `prefix`.
 * `isWindowTitleBasedOnCurrentFileEnabled() -> bool`
 * `removeSomeFilesFromViewer(filenames_to_remove: list)` is used when you want to remove some files in viewer, not all files. If `filenames_to_remove` includes the file name which was not included in list, error will be occured.
