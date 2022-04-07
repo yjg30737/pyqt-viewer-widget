@@ -43,6 +43,8 @@ For example, apps below are using this efficiently.
 ## Simple Example
 Code Example (Extremely basic image viewer)
 ```python
+import os, posixpath
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 from pyqt_viewer_widget import ViewerWidget
 
@@ -54,7 +56,11 @@ class MainWindow(QMainWindow):
 
     def __initUi(self):
         self.__viewerWidget = ViewerWidget()
-        self.__viewerWidget.setFilenames(['viewerWidgetExampleImagesDir']) # directory name which contains a bunch of files
+        dirname = os.path.join(os.getcwd(), 'viewerWidgetExampleImagesDir')
+        filenames = [os.path.join(dirname, filename).replace(os.path.sep, posixpath.sep) for filename in
+                     os.listdir(dirname)]
+        self.__viewerWidget.setExtensions(['.jpg'])
+        self.__viewerWidget.setFilenames(filenames)
         self.__viewerWidget.closeSignal.connect(self.__bottomWidgetClosed)
 
         self.setCentralWidget(self.__viewerWidget)
@@ -69,7 +75,7 @@ class MainWindow(QMainWindow):
         fileToolbar = self.addToolBar('File')
         fileToolbar.addWidget(self.__bottomWidgetToggleBtn)
         fileToolbar.setMovable(False)
-        
+
     def __bottomWidgetClosed(self):
         self.__bottomWidgetToggleBtn.setChecked(False)
 
