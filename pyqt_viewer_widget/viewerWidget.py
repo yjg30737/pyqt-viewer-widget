@@ -163,19 +163,9 @@ class ViewerWidget(QWidget):
         else:
             idx = filenames.index(cur_filename)
         for filename in filenames:
-            if os.path.isdir(filename):
-                dirname = filename
-                filenames_in_dir = self.__setOrdered(os.listdir(dirname))
-                image_filenames = [os.path.join(dirname, file_in_dir) for file_in_dir in filenames_in_dir
-                                   if self.__isImageFile(os.path.join(filename, file_in_dir))]
-                self.__filenames.extend(image_filenames)
-            else:
-                if self.__isImageFile(filename):
+            if len(self.__extensions) > 0:
+                if os.path.splitext(filename)[-1] in self.__extensions:
                     self.__filenames.append(filename)
-                else:
-                    if len(self.__extensions) > 0:
-                        if os.path.splitext(filename)[-1] in self.__extensions:
-                            self.__filenames.append(filename)
 
         if len(self.__filenames) > 0:
             self.setCurrentIndex(idx)
