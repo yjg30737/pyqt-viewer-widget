@@ -125,11 +125,15 @@ class ViewerWidget(QWidget):
     def getView(self) -> QWidget:
         return self._view
 
+    def clear(self):
+        self.__resetVal()
+        self.goHome()
+        self.clearSignal.emit()
+
     def setCurrentIndex(self, idx):
         self.__cur_idx = idx
         if len(self.__filenames) == 0:
-            self.clearSignal.emit()
-            self.goHome()
+            self.clear()
         else:
             self._view.setFilename(self.__filenames[idx])
             self.__topWidget.setCurrentWidget(self._view)
