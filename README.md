@@ -27,7 +27,7 @@ This is for image by default, but you can change its view for html or svg files 
 Filters the none-image files with private function using ```Image``` module in ```Pillow``` package.
 * Being able to show image files in certain directory by giving the directory name and image files' names as arguments to 
 * `addFilenames(filenames: list, cur_filename: str)` - Add filenames. ```cur_filename``` is file's name which you want to set as current file.
-* `setFilenames(filenames: list, cur_filename: str)`.
+* `setFilenames(filenames: list, cur_filename: str)`. - Clear file list before adding files.
 * `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
 * `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`.
 * Flip the page back and forth with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
