@@ -30,6 +30,7 @@ Filters the none-image files with private function using ```Image``` module in `
 * `setFilenames(filenames: list, cur_filename: str)`. - Clear file list before adding files.
 * `setCurrentIndex(idx: int)`, `getCurrentIndex() -> int`. The latter one can be used for checking at least one file exists or not.
 * `setCurrentFilename(filename: str)`, `getCurrentFilename() -> str`.
+* `clear()`
 * Flip the page back and forth with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
