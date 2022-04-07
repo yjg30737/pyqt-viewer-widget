@@ -106,7 +106,7 @@ class ViewerWidget(QWidget):
         if self.__window_title_based_on_current_file_flag:
             self.__windowTitlePrefix = prefix
 
-    def setExtensionsExceptForImage(self, extensions: list):
+    def setExtensions(self, extensions: list):
         self.__extensions = extensions
 
     def setHome(self, home_widget: QWidget):
@@ -171,16 +171,6 @@ class ViewerWidget(QWidget):
 
     def getFilenames(self) -> list:
         return self.__filenames
-
-    def __isImageFile(self, filename):
-        res = ''
-        try:
-            file = Image.open(filename)
-            res = file.format
-        except:
-            pass
-        finally:
-            return res
 
     def __btnToggled(self):
         self.__prevBtn.setEnabled(self.__cur_idx > 0)
