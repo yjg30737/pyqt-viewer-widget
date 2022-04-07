@@ -158,11 +158,11 @@ class ViewerWidget(QWidget):
 
     def setDirectory(self, dirname: str, cur_filename: str = ''):
         filenames = self.__getOsDependantFilenames(dirname)
-        self.setFilenames(filenames)
+        self.setFilenames(filenames, cur_filename)
 
-    def addDirectory(self, dirname: str, cur_filname: str = ''):
+    def addDirectory(self, dirname: str, cur_filename: str = ''):
         filenames = self.__getOsDependantFilenames(dirname)
-        self.addFilenames(filenames)
+        self.addFilenames(filenames, cur_filename)
 
     def setFilenames(self, filenames: list, cur_filename: str = ''):
         self.__resetVal()
