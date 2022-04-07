@@ -1,10 +1,9 @@
-import os, re
+import os, re, posixpath
 
 from PyQt5.QtGui import QKeySequence, QFont
 from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, QPushButton, QHBoxLayout, QLabel
 from PyQt5.QtCore import pyqtSignal, Qt
 
-from PIL import Image
 from pyqt_toast import Toast
 
 from pyqt_fitting_graphics_view.fittingGraphicsView import FittingGraphicsView
@@ -151,6 +150,19 @@ class ViewerWidget(QWidget):
             return ''
         else:
             return self.__filenames[self.__cur_idx]
+
+    def __getOsDependantFilenames(self, dirname) -> list:
+        filenames = [os.path.join(dirname, filename).replace(os.path.sep, posixpath.sep) for filename in
+                     os.listdir(dirname)]
+        return filenames
+
+    def setDirectory(self, dirname: str, cur_filename: str = ''):
+        filenames = self.__getOsDependantFilenames(dirname)
+        self.setFilenames(filenames)
+
+    def addDirectory(self, dirname: str, cur_filname: str = ''):
+        filenames = self.__getOsDependantFilenames(dirname)
+        self.addFilenames(filenames)
 
     def setFilenames(self, filenames: list, cur_filename: str = ''):
         self.__resetVal()
