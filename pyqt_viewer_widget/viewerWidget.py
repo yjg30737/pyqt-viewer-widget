@@ -13,7 +13,7 @@ class ViewerWidget(QWidget):
     prevSignal = pyqtSignal()
     nextSignal = pyqtSignal()
     clearSignal = pyqtSignal()
-    closeSignal = pyqtSignal()
+    closeSignal = pyqtSignal(bool)
 
     def __init__(self):
         super().__init__()
@@ -265,7 +265,7 @@ class ViewerWidget(QWidget):
 
     def __close(self):
         self.__bottomWidget.setVisible(False)
-        self.closeSignal.emit()
+        self.closeSignal.emit(False)
 
     def getFirstPageToast(self):
         return self.__firstPageToast
