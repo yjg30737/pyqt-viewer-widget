@@ -32,7 +32,7 @@ For example, apps below are using this efficiently.
 * Flip the page back and forth with prev, next button on bottom navigation widget, mouse wheel, left and right pad of keyboards.
 * Being able to check the current page
 * Being able to toggle the visibility of the bottom widget
-* Give the emitting signal when clicked prev, next, close buttons: ```prevSignal(), nextSignal(), closeSignal(bool)``` - close signal's bool value is always `False` to set the visibility of bottom widget (navigation widget) of viewer widget `False`. There's also `clearSignal` which is emitted when there is no file. (except for init moment)
+* Give the emitting signal when clicked prev, next, close buttons: ```prevSignal(str), nextSignal(str), closeSignal(bool)``` - prev/next signals' arguments are previous/next file's name. close signal's bool value is always `False` to set the visibility of bottom widget (navigation widget) of viewer widget `False`. There's also `clearSignal` which is emitted when there is no file. (except for init moment)
 * When you've got the absoulte beginning/last of the files list, toast(<a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a>) will show up. You can get either direction of toast with ```getFirstPageToast```, ```getLastPageToast``` to change the toast's style such as font, color.
 * `setView(view: QWidget)`, `getView() -> QWidget`
 * `setBottomWidgetVisible(f: bool)` to toggle the visibility of bottom navigation bar. 
