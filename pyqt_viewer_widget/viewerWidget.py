@@ -10,8 +10,8 @@ from pyqt_fitting_graphics_view.fittingGraphicsView import FittingGraphicsView
 
 
 class ViewerWidget(QWidget):
-    prevSignal = pyqtSignal()
-    nextSignal = pyqtSignal()
+    prevSignal = pyqtSignal(str)
+    nextSignal = pyqtSignal(str)
     clearSignal = pyqtSignal()
     closeSignal = pyqtSignal(bool)
 
@@ -191,7 +191,7 @@ class ViewerWidget(QWidget):
     def _prev(self):
         if self.__prevBtn.isEnabled():
             self.setCurrentIndex(self.__cur_idx-1)
-            self.prevSignal.emit()
+            self.prevSignal.emit(self.getCurrentFilename())
             return 0
         else:
             if self.__isAnyToastVisible():
@@ -203,7 +203,7 @@ class ViewerWidget(QWidget):
     def _next(self):
         if self.__nextBtn.isEnabled():
             self.setCurrentIndex(self.__cur_idx+1)
-            self.nextSignal.emit()
+            self.nextSignal.emit(self.getCurrentFilename())
             return 0
         else:
             if self.__isAnyToastVisible():
