@@ -80,8 +80,8 @@ class ViewerWidget(QWidget):
 
         self.setLayout(lay)
 
-        self.__firstPageToast = Toast(text='This is the first page.', close_sec=2, parent=self)
-        self.__lastPageToast = Toast(text='This is the last page.', close_sec=2, parent=self)
+        self.__firstPageToast = Toast(text='This is the first page.', duration=2, parent=self)
+        self.__lastPageToast = Toast(text='This is the last page.', duration=2, parent=self)
 
         self.__firstPageToast.setFont(QFont('Arial', 20))
         self.__lastPageToast.setFont(QFont('Arial', 20))
