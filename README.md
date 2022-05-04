@@ -1,4 +1,4 @@
-# pyqtviewerwidget
+# pyqt-viewer-widget
 PyQt viewer widget
 
 ## Requirements
