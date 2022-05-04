@@ -93,4 +93,4 @@ Result
 
 https://user-images.githubusercontent.com/55078043/145040849-0c7326ed-e043-4a8b-8c55-c9b7e1d1756e.mp4
 
-Note: This is result of very first version.
+Note: This is result of very first version..
