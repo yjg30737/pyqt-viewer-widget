@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'pyqtviewerwidget'
+project = 'pyqt-viewer-widget'
 copyright = '2022, Jung Gyu Yoon'
 author = 'Jung Gyu Yoon'
 
