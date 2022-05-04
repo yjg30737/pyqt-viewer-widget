@@ -1,0 +1,3 @@
+[submodule "pyqt-fitting-graphics-view"]
+	path = pyqt-fitting-graphics-view
+	url = https://github.com/yjg30737/pyqt-fitting-graphics-view.git

@@ -11,7 +11,7 @@ setup(
     url='https://github.com/yjg30737/pyqt-viewer-widget.git',
     install_requires=[
         'PyQt5>=5.8',
-        'pyqt-toast @ git+https://git@github.com/yjg30737/pyqt-toast.git@main',
+        'pyqt-toast>=0.0.1',
         'pyqt-fitting-graphics-view @ git+https://git@github.com/yjg30737/pyqt-fitting-graphics-view.git@main'
     ]
 )
