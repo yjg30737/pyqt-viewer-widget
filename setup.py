@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyqt-viewer-widget',
-    version='0.0.1',
+    version='0.0.12',
     author='Jung Gyu Yoon',
     author_email='yjg30737@gmail.com',
     license='MIT',
@@ -12,6 +12,6 @@ setup(
     install_requires=[
         'PyQt5>=5.8',
         'pyqt-toast>=0.0.1',
-        'pyqt-fitting-graphics-view @ git+https://git@github.com/yjg30737/pyqt-fitting-graphics-view.git@main'
+        'pyqt-fitting-graphics-view>=0.0.1'
     ]
 )

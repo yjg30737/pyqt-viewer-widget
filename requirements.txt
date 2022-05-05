@@ -1,2 +1,2 @@
 pyqt-toast>=0.0.1
-git+https://git@github.com/yjg30737/pyqt-fitting-graphics-view.git@main
+pyqt-fitting-graphics-view>=0.0.1
