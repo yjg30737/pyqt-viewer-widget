@@ -1,8 +1,6 @@
 # pyqt-viewer-widget
 PyQt viewer widget which helps you make viewer application easily
 
-<a href="https://pyqt-viewer-widget.readthedocs.io/en/latest/">Documentation</a>, but it's very basic (i'm still working on it).
-
 ## Requirements
 PyQt5 >= 5.8
 
