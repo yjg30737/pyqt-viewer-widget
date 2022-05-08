@@ -14,7 +14,7 @@ For example, apps below are using this efficiently.
 * <a href="https://github.com/yjg30737/pyqt-svg-viewer.git">pyqt-svg-viewer</a> - SVG viewer app
 
 ## Setup
-`pip3 install pyqt-viewer-widget`
+`python -m pip install pyqt-viewer-widget`
 
 ## Included Package
 * <a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a> - to notify user the very beginning/last page when flip the page
