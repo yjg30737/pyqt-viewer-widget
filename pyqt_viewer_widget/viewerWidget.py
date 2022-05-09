@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, Q
 from PyQt5.QtCore import pyqtSignal, Qt
 
 from pyqt_toast import Toast
+from pyqt_fitting_graphics_view import FittingGraphicsView
 
 
 class ViewerWidget(QWidget):
