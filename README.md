@@ -18,7 +18,7 @@ For example, apps below are using this efficiently.
 
 ## Included Package
 * <a href="https://github.com/yjg30737/pyqt-toast.git">pyqt-toast</a> - to notify user the very beginning/last page when flip the page
-* <a href="https://github.com/yjg30737/pyqt-fitting-graphics-view.git">pyqt-fitting-graphics-view</a> - main view
+* <a href="https://github.com/yjg30737/pyqt-single-image-graphics-view.git">pyqt-single-image-graphics-view</a> - main view
 
 ## Feature
 * `setExtensions(extensions: list)` to set file extensions to show on the view (e.g. ['.html'])
