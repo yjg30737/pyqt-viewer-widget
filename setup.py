@@ -22,6 +22,6 @@ setup(
     install_requires=[
         'PyQt5>=5.8',
         'pyqt-toast>=0.0.1',
-        'pyqt-fitting-graphics-view>=0.0.1'
+        'pyqt-single-image-graphics-view>=0.0.1'
     ]
 )

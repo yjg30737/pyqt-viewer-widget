@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout, QGridLayout, Q
 from PyQt5.QtCore import pyqtSignal, Qt
 
 from pyqt_toast import Toast
-from pyqt_fitting_graphics_view import FittingGraphicsView
+from pyqt_single_image_graphics_view import SingleImageGraphicsView
 
 
 class ViewerWidget(QWidget):
@@ -66,7 +66,7 @@ class ViewerWidget(QWidget):
         self.__closeBtn.clicked.connect(self.__close)
 
         self._home = QWidget()
-        self._view = FittingGraphicsView()
+        self._view = SingleImageGraphicsView()
 
         self.__topWidget = QStackedWidget()
         self.__topWidget.addWidget(self._home)
