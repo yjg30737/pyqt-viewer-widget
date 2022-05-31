@@ -56,7 +56,7 @@ class ViewerWidget(QWidget):
         lay.addWidget(self.__pageLabel, 0, 0, 1, 1, alignment=Qt.AlignLeft)
         lay.addWidget(btns, 0, 1, 1, 1, alignment=Qt.AlignCenter)
         lay.addWidget(self.__closeBtn, 0, 2, 1, 1, alignment=Qt.AlignRight)
-        lay.setContentsMargins(0, 0, 0, 0)
+        lay.setContentsMargins(5, 2, 5, 5)
 
         self.__bottomWidget = QWidget()
         self.__bottomWidget.setLayout(lay)
@@ -75,6 +75,7 @@ class ViewerWidget(QWidget):
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
         lay.addWidget(self.__bottomWidget)
+        lay.setContentsMargins(0, 0, 0, 0)
 
         self.setLayout(lay)
 
