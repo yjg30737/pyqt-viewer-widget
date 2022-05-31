@@ -75,7 +75,6 @@ class ViewerWidget(QWidget):
         lay = QVBoxLayout()
         lay.addWidget(self.__topWidget)
         lay.addWidget(self.__bottomWidget)
-        lay.setContentsMargins(0, 0, 0, 0)
 
         self.setLayout(lay)
 
