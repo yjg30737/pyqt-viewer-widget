@@ -8,6 +8,7 @@ from pyqt_toast import Toast
 from pyqt_single_image_graphics_view import SingleImageGraphicsView
 
 
+# todo replace filenames with pixmaps to make it more functional
 class ViewerWidget(QWidget):
     prevSignal = pyqtSignal(str)
     nextSignal = pyqtSignal(str)
@@ -182,6 +183,15 @@ class ViewerWidget(QWidget):
 
     def getFilenames(self) -> list:
         return self.__filenames
+
+    # todo complete the adding compressed files feature
+    def setCompressedFilenames(self, filenames_img_dict, cur_filename = ''):
+        self.__resetVal()
+        filenames = [os.path.basename(filename) for filename in filenames_img_dict.keys()]
+
+        pixmaps = [p for p in filenames_img_dict.values()]
+        self._view.setPixmap(pixmaps[0])
+        self.__topWidget.setCurrentWidget(self._view)
 
     def __btnToggled(self):
         self.__prevBtn.setEnabled(self.__cur_idx > 0)
